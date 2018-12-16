@@ -4,7 +4,7 @@ import java.text.*;
 import java.math.*;
 import java.util.regex.*;
 
-public class Solution {
+public class StdDevVar {
     public static double computeMean(int[] arr){
         double mean=0;
         for(int ele: arr){
