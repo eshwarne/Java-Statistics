@@ -3,6 +3,7 @@ import java.util.*;
 import java.text.*;
 import java.math.*;
 import java.util.regex.*;
+
 public class IQR {
     public static int computeMedian(int[] data, int start, int end) {
         int median = 0;
@@ -38,18 +39,34 @@ public class IQR {
         } else {
             quartile3 = computeMedian(data, data.length / 2, data.length);
         }
-        System.out.println(quartile3-quartile1);
+        System.out.println((double)quartile3-quartile1);
 
     }
 
     public static void main(String[] args) {
         Scanner input=new Scanner(System.in);
         int n=input.nextInt();
-        int[] x=new int[n]
-        int[] frequencies=new int[5];
-        int[] data=new int[n];
+        int[] x=new int[n];
         for(int i=0;i<n;i++){
-            data[i]=input.nextInt();
+            x[i]=input.nextInt();
+        }
+        int[] frequencies=new int[n];
+         for(int i=0;i<n;i++){
+            frequencies[i]=input.nextInt();
+        }
+        int dataLength=0;
+        for(int ele:frequencies){
+            dataLength+=ele;
+        }
+        int[] data=new int[dataLength];
+        int l=0;
+        int k=0;
+        for(int xe:x){
+            for(int i=0;i<frequencies[k];i++){
+                data[l]=xe;
+                l++;
+            }
+            k++;
         }
         input.close();
         Arrays.sort(data);
